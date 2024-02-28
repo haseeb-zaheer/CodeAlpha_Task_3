@@ -100,14 +100,12 @@ void Sudoku::pollEvent()
 							solved = solveSudoku();
 							if (solved)
 							{
-								printGrid();
 								printGridToScreen();
 								cout << "Solved!" << endl;
 							}
 						}
 						else
 						{
-							printGrid();
 							cout << "Cannot be solved!" << endl;
 							endPrompt.setString("Grid was not solvable!");
 						}
@@ -135,8 +133,6 @@ void Sudoku::pollEvent()
 					selectedCell = { row, col };
 
 					inputPrompt.setPosition(selectedCell.second * cell + 20, selectedCell.first * cell + 10);
-
-					cout << "Clicked on cell (" << row << ", " << col << ")" << endl;
 				}
 				break;
 			case sf::Event::TextEntered:
@@ -247,15 +243,6 @@ void Sudoku::initMenu()
 	endPrompt.setFillColor(sf::Color::Red);
 	endPrompt.setCharacterSize(30);
 	endPrompt.setPosition(sf::Vector2f(292, 330));
-}
-void Sudoku::printGrid()
-{
-	for (int i = 0; i < gridSize; i++)
-	{
-		for (int j = 0; j < gridSize; j++)
-			cout << sudokuGrid[i][j]<<" ";
-		cout << endl;
-	}
 }
 bool Sudoku::solveSudoku()
 {

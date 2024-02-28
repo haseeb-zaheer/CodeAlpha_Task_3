@@ -34,7 +34,6 @@ private:
 	void initWindow();
 	void initGrid();
 	void initMenu();
-	void printGrid();
 	bool solveSudoku();
 	bool isValid(int r, int c, int num);
 	bool gridEmpty(int& r, int& c);
